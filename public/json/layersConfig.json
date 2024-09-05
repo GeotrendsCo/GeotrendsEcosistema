@@ -1,0 +1,210 @@
+{
+    "ruido": {
+        "control_turbocompreso_barrera": {
+            "name": "Control Turbocompresor",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {isovalue}",
+            "index": 99
+        },
+        "lineabase_1": {
+            "name": "Regulación",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {ISOVALUE} dBA",
+            "index": 99
+        },
+        "controltotal": {
+            "name": "Control total",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {isovalue} dBA",
+            "index": 99
+        },
+        "control_microturbinas": {
+            "name": "Control Microturbina",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {isovalue} dBA",
+            "index": 99
+        },
+        "control_total_tuberias_chaqueta": {
+            "name": "C T Tuberías Chaquetas",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {isovalue} dBA",
+            "index": 99
+        },
+        "cont_tub_cha": {
+            "name": "Control Regulación",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {isovalue} dBA",
+            "index": 99
+        },
+        "control_t_tub_chaque_turbo_b_barrera_14cm": {
+            "name": "C T barrerá 14com",
+            "popupTemplate": "<strong>Nivel de Presión Sonra</strong><br><br><strong>LAeq [dB]:</strong> {isovalue} dBA",
+            "index": 99
+        }
+    },
+    "mediciones": {
+        "ambiental": {
+            "name": "Ruido Ambiental",
+            "popupTemplate": "<img src=\"/images/Fotografias/{Foto}.jpg\" class=\"popup-img\"><br><div class=\"popup-content\"><strong>Punto:</strong> {Punto}<br><table class=\"popup-table\"><tr><th>Día On</th><th>Día Off</th><th>Noche On</th><th>Noche Off</th></tr><tr><td>{DOn} dB</td><td>{DOff} dB</td><td>{NOn} dB</td><td>{NOff} dB</td></tr></table><strong>Coordenadas:</strong> {Norte}, {Oeste}<br></div>",
+            "iconUrl": "/icons/red-icon.png",
+            "index": 3
+        },
+        "emision": {
+            "name": "Ruido Emisión",
+            "popupTemplate": "<img src=\"/images/Fotografias/{Foto}.jpg\" class=\"popup-img\"><div class=\"popup-content\"><br><strong>Punto:</strong> {Punto}<br><table class=\"popup-table\"><tr><th>Día On</th><th>Día Off</th><th>Noche On</th><th>Noche Off</th></tr><tr><td>{DOn} dB</td><td>{DOff} dB</td><td>{NOn} dB</td><td>{NOff} dB</td></tr></table><strong>Coordenadas:</strong> {Norte}, {Oeste}<br></div>",
+            "iconUrl": "/icons/red-icon.png",
+            "index": 3
+        },
+        "paiva": {
+            "name": "paiva",
+            "popupTemplate": "<img src=\"/images/Fotografias/{Foto}.jpg\" class=\"popup-img\"><div class=\"popup-content\"><br><strong>Punto:</strong> {Punto}<br><table class=\"popup-table\"><tr><th>Día On</th><th>Día Off</th><th>Noche On</th><th>Noche Off</th></tr><tr><td>{DOn} dB</td><td>{DOff} dB</td><td>{NOn} dB</td><td>{NOff} dB</td></tr></table><strong>Coordenadas:</strong> {Norte}, {Oeste}<br></div>",
+            "iconUrl": "/icons/red-icon.png",
+            "index": 3
+        }
+    },
+    "controles": {
+        "fcontroles": {
+            "name": "Control de ruido",
+            "popupTemplate": "<img src=\"/images/Fotografias/{foto}\" class=\"popup-img\"><br><div class=\"popup-content\"><strong>Descripción: </strong>{descr}</div>",
+            "iconUrl": "/icons/red-icon.png",
+            "index": 3
+        }
+    },
+    "shp_base": {
+        "zonasduras": {
+            "name": "Zonas Duras",
+            "style": {
+                "color": "#000000",
+                "weight": 1
+            },
+            "index": 1
+        },
+        "via": {
+            "name": "Vía",
+            "style": {
+                "color": "#000000",
+                "weight": 5
+            },
+            "index": 1
+        },
+        "exhostomicroturbinas": {
+            "name": "Exhosto Microturbinas",
+            "style": {
+                "color": "#00FF00",
+                "weight": 5
+            },
+            "index": 2
+        },
+        "aerobkupb": {
+            "name": "Aero Backup B",
+            "style": {
+                "color": "#000000",
+                "weight": 2
+            },
+            "index": 3
+        },
+        "puntosMedicion": {
+            "name": "Puntos de Medición",
+            "style": {
+                "color": "#FFFF00",
+                "weight": 5
+            },
+            "index": 4
+        },
+        "viaplanta": {
+            "name": "Vía Planta",
+            "style": {
+                "color": "#000000",
+                "weight": 5
+            },
+            "index": 5
+        },
+        "barrera": {
+            "name": "Barrera",
+            "style": {
+                "color": "#0098C5",
+                "weight": 8,
+                "dashArray": 15
+            },
+            "index": 6
+        },
+        "tuberias": {
+            "name": "Tuberías",
+            "style": {
+                "color": "#F1F1F1",
+                "weight": 4
+                
+            },
+            "index": 20
+        },
+        "barrera_control": {
+            "name": "Barrera Control",
+            "style": {
+                "color": "#800080",
+                "weight": 6
+            },
+            "index": 8
+        },
+        "edificaciones": {
+            "name": "Edificaciones",
+            "style": {
+                "color": "#808080",
+                "weight": 2
+            },
+            "index": 9
+        },
+        "compresor": {
+            "name": "Compresor",
+            "style": {
+                "color": "#C50000",
+                "weight": 5
+            },
+            "index": 10
+        },
+        "aeroenfriadores": {
+            "name": "Aeroenfriadores",
+            "style": {
+                "color": "#000000",
+                "weight": 2
+            },
+            "index": 11
+        },
+        "aeroenfriadores_bkupa": {
+            "name": "Aeroenfriadores Backup A",
+            "style": {
+                "color": "#000000",
+                "weight": 2
+            },
+            "index": 12
+        },
+
+        "turbocompresor_bkupb": {
+            "name": "Turbocompresor Backup B",
+            "style": {
+                "color": "#000000",
+                "weight": 2
+            },
+            "index": 14
+        },
+        "techos": {
+            "name": "Techos",
+            "style": {
+                "color": "#D2691E",
+                "weight": 5
+            },
+            "index": 15
+        },
+        "microturbinas": {
+            "name": "Microturbinas",
+            "style": {
+                "color": "#B22222",
+                "weight": 5
+            },
+            "index": 16
+        },
+        "construcciones": {
+            "name": "Construcciones",
+            "style": {
+                "color": "#9A9A9A",
+                "weight": 1,
+                "fillOpacity": 1, 
+                "fillcolor": "#4F4F4F"
+            },
+            "index": 17
+        }
+    }
+}

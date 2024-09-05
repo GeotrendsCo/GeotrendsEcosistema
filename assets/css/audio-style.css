@@ -1,0 +1,101 @@
+/* Estilo para el contenedor del gráfico de Plotly */
+#plot {
+    width: 100%;
+    margin: 0px;
+    border: 0px solid #626262; /* Borde gris */
+    border-radius: 1px; /* Borde poco redondeado */
+    padding: 10px;
+    box-sizing: border-box;
+    height: 400px;
+}
+
+/* Estilo para el contenedor de la forma de onda */
+#waveform {
+    width: 100%;
+    margin: 0px auto;
+    margin-left: 0px;
+    border: 1px solid #eaeaea; /* Borde gris */
+    border-radius: 2px; /* Borde poco redondeado */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilo para la tabla de marcas */
+/* Contenedor de la tabla con scroll */
+.table-responsive {
+    width: 80%;
+    margin: 0 auto;
+    max-height: 200px; /* Altura máxima para el scroll */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    border: 1px solid #e6e6e6; /* Borde gris */
+    border-radius: 5px; /* Borde poco redondeado */
+}
+
+/* Estilo para la tabla */
+#marcasTable {
+    width: 100%;
+    margin-top: 20px;
+    table-layout: fixed; /* Asegura que la tabla se ajuste al ancho del contenedor */
+}
+
+#marcasTable thead {
+    background-color: #626262;
+    color: white;
+    position: sticky;
+    top: 0; /* Mantiene la cabecera fija cuando haces scroll */
+    z-index: 1; /* Asegura que la cabecera esté por encima del contenido de la tabla */
+}
+
+#marcasTable tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#marcasTable tbody tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+/* Estilo general */
+.container {
+    max-width: 100%;
+    text-align: center;
+}
+
+button, input[type="range"], p label {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+/* Estilo para el botón de Play/Pause */
+#play-button {
+    background-color: #FF5733; /* Cambia el color del botón aquí */
+    border-color: #FF5733;
+    color: white;
+    margin-right: 10px;
+}
+
+/* Alinear el checkbox de loop en la misma fila que el botón */
+.controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* Limitar la tabla a mostrar solo los primeros 10 datos y agregar color */
+#marcasTable tbody tr:nth-child(n+11) {
+    display: none; /* Ocultar filas después de la décima */
+}
+
+#marcasTable thead {
+    background-color: #626262;
+    color: white;
+}
+
+#marcasTable tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#marcasTable tbody tr:nth-child(even) {
+    background-color: #e6e6e6;
+}

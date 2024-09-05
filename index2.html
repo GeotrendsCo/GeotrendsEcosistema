@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geotrends Eco</title>
+
+     <!-- carga de estilos -->
+     <link rel="stylesheet" href="/assets/css/style.css">
+     <link rel="stylesheet" href="/assets/css/map-style.css">
+     <!-- Boostrap 5.3 -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+         crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+         crossorigin="anonymous"></script>
+     <!-- Leaflet -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+     <!-- Iconos -->
+     <script src="https://kit.fontawesome.com/a036caa48c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="logo" src="assets/img/logo.png" alt="logo">
+    </nav>
+    <!-- Video de Introducción -->
+    <div id="intro-video" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+        <video id="video" autoplay>
+            <source src="/videos/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="markerModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="markerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="markerModalLabel">Información del punto de medición</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Aquí irá el contenido dinámico del marker -->
+                    <p id="markerInfo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal para ver la imagen en grande -->
+    <div class="modal fade" id="modalImagen" tabindex="-1" role="dialog" aria-labelledby="modalImagenLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalImagenLabel">Vista Previa</h5>
+                </div>
+                <div class="modal-body">
+                    <img id="imagenModal" src="" alt="Imagen Seleccionada" class="img-fluid">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="public/images/imagen1.jpeg" class="d-block w-100" alt="...">
+        </div>
+        <!-- <div class="carousel-item">
+            <img src="/images/imagen2.jpeg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/imagen3.jpeg" class="d-block w-100" alt="...">
+        </div> -->
+    </div>
+
+    <!-- Menù derecho -->
+    <div class="menu">
+        <div class="header-logo">
+            <img src="assets/img/logo-promigas.svg" alt="Header Logo">
+            <img src="assets/img/logo-CCR.svg" alt="Header Logo" style="width: 100px;">
+        </div>
+        <hr>
+        <!-- Normativa -->
+        <div class="menu-card" data-content="Normativa">
+            <span><i class="fa-solid fa fa-handshake-o me-3"></i> Normativa</span>
+        </div>
+        <!-- Holografias -->
+        <div class="menu-card" data-content="holografia">
+            <span><i class="fa-solid fa fa-th-large me-3"></i> Holografia </span>
+        </div>
+        <!-- Navegación 360 -->
+        <div class="menu-card" data-content="Nav_360">
+            <span><i class="fa-solid fa fa-simplybuilt me-3"></i> Ingeniería</span>
+        </div>
+        <!-- Estaciones Mapas-->
+        <div class="menu-card" data-content="proyectosContent">
+            <span><i class="fa-solid fa-map me-3"></i> Estaciones</span>
+        </div>
+        <!-- Registros imahenes -->
+        <div class="menu-card" data-content="registros">
+            <span><i class="fa-solid fa-camera-retro me-3"></i> Registros</span>
+        </div>
+        <!-- Mapas en Imagenes -->
+        <div class="menu-card" data-content="mruido">
+            <span><i class="fa-solid fa fa-map me-3"></i> Mapas de Ruido</span>
+        </div>
+        <!-- Logo Geotrends  -->
+        <div class="footer-logo">
+            <b style="color: aliceblue;">Powered by</b>
+            <img src="assets/img/Logo_2.png" alt="Footer Logo">
+        </div>
+    </div>
+
+    <div class="content" id="content">
+        <div id="proyectosContent">
+            <div id="map"></div>
+            <div id="returnBtn"><span><i class="fa-solid fa-circle-left me-1"></i> Reestablecer</span></div>
+        </div>
+ <!-- Contendor de galeria de registros fotografico -->
+ <div id="registros">
+    <div id="gallery-container"></div>
+</div>
+<!-- contnedor de Mpas de ruido en Imgenes  -->
+<div id="mruido">
+    <div id="gallery-container2"></div>
+</div>
+<!-- Contenedot de Holografias  -->
+<div id="holografia">
+    <div class="container-fluid h-100 p-0">
+        <div class="row h-100 m-0">
+            <!-- Columna Izquierda: Lista de Casos -->
+            <div class="col-md-2 p-0">
+                <ul class="list-group" id="comparison-list">
+                    <li class="list-group-item" style="width: 200px;" data-case="1">Caso 1</li>
+                    <li class="list-group-item" style="width: 200px;" data-case="2">Caso 2</li>
+                    <li class="list-group-item" style="width: 200px;" data-case="3">Caso 3</li>
+                    <li class="list-group-item" style="width: 200px;" data-case="4">Caso 4</li>
+                    <li class="list-group-item" style="width: 200px;" data-case="5">Caso 5</li>
+                    <li class="list-group-item" style="width: 200px;" data-case="6">Caso 6</li>
+                    <li class="list-group-item" style="width: 200px;" data-case="7">Caso 7</li>
+
+                </ul>
+                <br>
+                <!-- <img class="imgpotencia" src="/images/mPotencia.png" alt=""> -->
+            </div>
+            <!-- Columna Derecha: Contenedor de Comparación -->
+            <div class="col-md-10 p-0" style="margin-top: 150px;">
+                <div class="image-comparison-container">
+                    <div class="image-comparison-wrapper">
+                        <img src="/images/holografias/P1_Con_Chaqueta_250_8000HZ.png" class="comparison-image"
+                            id="image-a">
+                        <img src="/images/holografias/P1_Sin_Chaqueta_250_8000HZ.png" class="comparison-image"
+                            id="image-b" style="clip: rect(0, 0, auto, auto);">
+                    </div>
+                    <div class="comparison-slider" id="comparison-slider"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Contenedot Imgaen 360 -->
+        <div id="Nav_360">
+            <h1>Igeniería de Control</h1>
+            <form id="selection-form">
+                <select id="company-select">
+                    <option value="CCR Ingenieros">Seleccione una compañía</option>
+                </select>
+                <select id="project-select" disabled>
+                    <option value="Promigas">Seleccione un proyecto</option>
+                </select>
+                <select id="deployment-select" disabled>
+                    <option value="Paiva">Seleccione un despliegue</option>
+                </select>
+                <button type="submit" disabled>Ver despliegue</button>
+            </form>
+            <div id="viewer" style="width: 100%; height: 90vh;"></div>
+            <script type="module" src="/src/js/nav360.js"></script>
+        </div>
+
+         <!-- Contenedor Normativa -->
+         <div id="Normativa">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SECTOR</th>
+                        <th>SUBSECTOR</th>
+                        <th colspan="2">Niveles de Ruido Ambiental dB(A)</th>
+                        <th colspan="2">Niveles de Ruido de emisión dB(A)</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th><span class="day">Día</span></th>
+                        <th><span class="night">Noche</span></th>
+                        <th><span class="day">Día</span></th>
+                        <th><span class="night">Noche</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="sector">A</td>
+                        <td class="subsector-text">Tranquilidad y Silencio: Hospitales, bibliotecas, guarderías,
+                            sanatorios, hogares geriátricos.</td>
+                        <td>55</td>
+                        <td>45</td>
+                        <td>55</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td class="sector">B</td>
+                        <td class="subsector-text">
+                            Tranquilidad y Ruido Moderado: Zonas residenciales exclusivamente destinadas para
+                            desarrollo
+                            habitacional, hotelería y hospedajes.<br>
+                            Universidades, colegios, escuelas, centros de estudio e investigación.<br>
+                            Parques en zonas urbanas diferentes a los parques mecánicos al aire libre.
+                        </td>
+                        <td>65</td>
+                        <td>50</td>
+                        <td>65</td>
+                        <td>55</td>
+                    </tr>
+                    <tr>
+                        <td class="sector" rowspan="4">C</td>
+                        <td class="subsector-text">Zonas con usos permitidos industriales, como industrias en
+                            general,
+                            zonas portuarias, parques industriales, zonas francas.</td>
+                        <td>75</td>
+                        <td>70</td>
+                        <td>75</td>
+                        <td>75</td>
+                    </tr>
+                    <tr>
+                        <td class="subsector-text">Zonas con usos permitidos comerciales, como centros comerciales,
+                            almacenes, locales o instalaciones de tipo comercial, talleres de mecánica automotriz e
+                            industrial, centros deportivos y recreativos, gimnasios, restaurantes, bares, tabernas,
+                            discotecas, bingos, casinos.</td>
+                        <td>70</td>
+                        <td>55</td>
+                        <td>70</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td class="subsector-text">Zonas con usos permitidos de oficinas.</td>
+                        <td>65</td>
+                        <td>50</td>
+                        <td>65</td>
+                        <td>55</td>
+                    </tr>
+                    <tr>
+                        <td class="subsector-text">Zonas con otros usos relacionados, como parques mecánicos al aire
+                            libre, áreas destinadas a espectáculos públicos al aire libre.</td>
+                        <td>80</td>
+                        <td>70</td>
+                        <td>80</td>
+                        <td>75</td>
+                    </tr>
+                    <tr class="sector-d">
+                        <td class="sector">D</td>
+                        <td class="subsector-text">
+                            Zona Suburbana o Rural de Tranquilidad y Ruido Moderado: Residencial suburbana.<br>
+                            Rural habitada destinada a explotación agropecuaria.<br>
+                            Zonas de Recreación y descanso, como parques naturales y reservas naturales.
+                        </td>
+                        <td>55</td>
+                        <td>45</td>
+                        <td>55</td>
+                        <td>50</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="articulos">
+
+                <p>
+                    <strong>Parágrafo 1°. </strong>Cuando la emisión de ruido en un sector o subsector, trascienda a
+                    sectores o subsectores
+                    vecinos o inmersos en él, los estándares máximos permisibles de emisión de ruido son aquellos
+                    que
+                    corresponden al sector o subsector <b>más restrictivo</b>.
+                </p>
+                <b></b>
+                <p> <strong> f) </strong>Si la diferencia aritmética entre LRAeq,1h y LRAeq,1h, Residual es igual o
+                    inferior a 3 dB(A), se
+                    deberá indicar que el nivel de ruido de emisión (LRAeq,1h, Residual) es del <b>orden igual o
+                        inferior</b>
+                    al ruido residual;</p>
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="src/js/videoIntro.js"></script>
+    <script type="module" src="src/js/audio.js"></script>
+
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="src/js/holografias.js"></script>
+    <script src="https://kit.fontawesome.com/a036caa48c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+        <script>
+            // Definimos las carpetas y las imágenes que están en cada una
+            const galleryData1 = {
+                "Palomino": ["PALOMINO_00001.jpeg", "PALOMINO_00002.jpeg", "PALOMINO_00003.jpeg",
+                    "PALOMINO_00004.jpeg",
+                    "PALOMINO_00005.jpeg",
+                    "PALOMINO_00006.jpeg",
+                    "PALOMINO_00007.jpeg",
+                    "PALOMINO_00008.jpeg",
+                    "PALOMINO_00009.jpeg",
+                    "PALOMINO_00010.jpeg",
+                    "PALOMINO_00011.jpeg",
+                    "PALOMINO_00012.jpeg",
+                    "PALOMINO_00013.jpeg",
+                    "PALOMINO_00014.jpeg"],
+                "Paiva": [
+                    "PAIVA_00001.jpeg",
+                    "PAIVA_00002.jpeg",
+                    "PAIVA_00003.jpeg",
+                    "PAIVA_00004.jpeg",
+                    "PAIVA_00005.jpeg",
+                    "PAIVA_00006.jpeg",
+                    "PAIVA_00007.jpeg",
+                    "PAIVA_00008.jpeg",
+                    "PAIVA_00009.jpeg",
+                    "PAIVA_00010.jpeg",
+                    "PAIVA_00011.jpeg",
+                    "PAIVA_00012.jpeg",
+                    "PAIVA_00013.jpeg",
+                    "PAIVA_00014.jpeg",
+                    "PAIVA_00015.jpeg"
+                ],
+                "Filadelfia": [
+                    "FILADELFIA_00001.jpeg",
+                    "FILADELFIA_00002.jpeg",
+                    "FILADELFIA_00003.jpeg",
+                    "FILADELFIA_00004.jpeg",
+                    "FILADELFIA_00005.jpeg",
+                    "FILADELFIA_00006.jpeg",
+                    "FILADELFIA_00007.jpeg",
+                    "FILADELFIA_00008.jpeg",
+                    "FILADELFIA_00009.jpeg",
+                    "FILADELFIA_00010.jpeg",
+                    "FILADELFIA_00011.jpeg",
+                    "FILADELFIA_00012.jpeg",
+                    "FILADELFIA_00013.jpeg",
+                    "FILADELFIA_00014.jpeg",
+                    "FILADELFIA_00015.jpeg",
+                    "FILADELFIA_00016.jpeg",
+
+                ],
+            };
+
+            const galleryData2 = {
+                "Filadelfia": [
+                    "MFILADELFIA_00001.jpeg",
+                    "MFILADELFIA_00002.jpeg",
+                    "MFILADELFIA_00003.jpeg",
+                    "MFILADELFIA_00004.jpeg",
+                    "MFILADELFIA_00005.jpeg",
+                    "MFILADELFIA_00006.jpeg",
+                    "MFILADELFIA_00007.jpeg",
+                    "MFILADELFIA_00008.jpeg",
+                    "MFILADELFIA_00009.jpeg",
+                    "MFILADELFIA_00010.jpeg"
+                ],
+                "Paiva": [
+                    "MPAIVA_00001.jpeg",
+                    "MPAIVA_00002.jpeg",
+                    "MPAIVA_00003.jpeg",
+                    "MPAIVA_00004.jpeg",
+                    "MPAIVA_00005.jpeg",
+                    "MPAIVA_00006.jpeg",
+                    "MPAIVA_00007.jpeg",
+                    "MPAIVA_00008.jpeg",
+                    "MPAIVA_00009.jpeg"
+                ],
+                "Palomino": [
+                    "2D_Palomino_Microturbinas.png",
+                    "2D_Palomino_Total.png",
+                    "2D_Palomino_Tuberias.png",
+                    "2D_Palomino_Turbocompresor.png"
+                ]
+            };
+
+            const baseDir1 = 'public/images/registros';  // Directorio base de las imágenes para galleryData1
+            const baseDir2 = 'public/images/registros';  // Directorio base de las imágenes para galleryData2
+
+            const galleryContainer1 = document.getElementById('gallery-container');
+            const galleryContainer2 = document.getElementById('gallery-container2');
+
+            // Función combinada para generar la galería
+            // Función combinada para generar la galería
+            function createGallery(data, baseDir, container) {
+                for (let folder in data) {
+                    // Crear el título de la galería
+                    const title = document.createElement('h2');
+                    title.className = 'gallery-title';
+                    title.textContent = folder;
+                    container.appendChild(title);
+
+                    // Crear el contenedor de imágenes
+                    const gallery = document.createElement('div');
+                    gallery.className = 'gallery';
+
+                    data[folder].forEach(image => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = `${baseDir}/${folder}/${image}`;
+                        imgElement.alt = image;
+                        imgElement.className = 'img-thumbnail';  // Añadir clase Bootstrap para estilo
+                        imgElement.style.margin = '5px';  // Añadir algo de espaciado
+
+                        // Agregar evento de clic para abrir el modal con la imagen seleccionada
+                        imgElement.onclick = function () {
+                            abrirModal(this);
+                        };
+
+                        gallery.appendChild(imgElement);
+                    });
+
+                    container.appendChild(gallery);
+                }
+            }
+
+            // Función para abrir el modal y mostrar la imagen seleccionada
+            function abrirModal(imagen) {
+                // Cambiar el src de la imagen del modal por la imagen seleccionada
+                document.getElementById('imagenModal').src = imagen.src;
+                // Mostrar el modal
+                $('#modalImagen').modal('show');
+            }
+
+            // Llamar a la función para crear ambas galerías
+            createGallery(galleryData1, baseDir1, galleryContainer1);
+            createGallery(galleryData2, baseDir2, galleryContainer2);
+
+        </script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

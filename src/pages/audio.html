@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/audio-style.css">
+    <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
+</head>
+
+<style>
+    #marcasTable td, #marcasTable th {
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+
+    <div class="table-responsive">
+        <table id="medTable" class="table table-striped table-bordered">
+            <!-- La tabla se llenará dinámicamente -->
+        </table>
+    </div>
+    <!-- Contenedor del gráfico de Plotly -->
+    <div id="plot"></div>
+
+    <div class="container mt-5">
+        <!-- Contenedor para la forma de onda -->
+        <div id="waveform"></div>
+        <div>
+            <label for="">
+                Zoom: <input type="range" min="0" max="100" value="0">
+            </label>
+
+        </div>
+<br>
+        
+        <!-- Botón de play/pause y otras opciones -->
+         <div>
+            <button id="play-button" class="btn btn-primary mt-3">Reproducir/Pausar</button>
+         </div>
+        
+        <p>
+            <label>
+
+                <input type="checkbox" id="loop-checkbox" checked />
+                Loop regions
+            </label>
+        </p>
+
+    </div>
+
+
+    <!-- Contenedor de la tabla -->
+    <div class="table-responsive">
+        <table id="marcasTable" class="table table-striped table-bordered">
+            <!-- La tabla se llenará dinámicamente -->
+        </table>
+    </div>
+
+
+
+    <script type="module" src="../js/audio.js"></script>
+</body>
+
+</html>

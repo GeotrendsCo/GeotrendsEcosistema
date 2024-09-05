@@ -1,0 +1,182 @@
+{
+  "Filadelfia": {
+    "coordinates": [9.622306, -75.429667],
+    "points": {
+      "RE1": {
+        "diurnoOn":"62,0 dBA",
+        "diurnoOff":"52,3 dBA",
+        "diurnoProcesadoOn":"52,5 dBA",
+        "diurnoSimuladoOn":"50,0 dBA",
+        "nocturnoOn":"56,6 dBA",
+        "nocturnoOff":"49,4 dBA",
+        "nocturnoProcesadoOn":"51,4 dBA",
+        "nocturnoSimuladoOn":"50,0 dBA",
+        "coordinates": [9.622306, -75.429667],
+        "codmed": "RE1_DF_ON"
+      },
+      "RE2": {
+        "diurnoOn":"45,7 dBA",
+        "diurnoOff":"47,1 dBA",
+        "diurnoProcesadoOn":"44,7 dBA",
+        "diurnoSimuladoOn":"46,7 dBA",
+        "nocturnoOn":"50,9 dBA",
+        "nocturnoOff":"52,4 dBA",
+        "nocturnoProcesadoOn":"50,0 dBA",
+        "nocturnoSimuladoOn":"46,7 dBA",
+        "coordinates": [9.627361, -75.42925],
+        "codmed": "RE2_DF_ON"
+      },
+      "RE3": {
+        "diurnoOn":"50,9 dBA",
+        "diurnoOff":"39,4 dBA",
+        "diurnoProcesadoOn":"49,9 dBA",
+        "diurnoSimuladoOn":"44,4 dBA",
+        "nocturnoOn":"45,9 dBA",
+        "nocturnoOff":"NR",
+        "nocturnoProcesadoOn":"44,4 dBA",
+        "nocturnoSimuladoOn":"44,4 dBA",
+        "coordinates": [9.620339, -75.426592],
+        "codmed": "RE3_NF_ON"
+      },
+      "RE4": {
+        "diurnoOn":"51,3 dBA",
+        "diurnoOff":"47,4 dBA",
+        "diurnoProcesadoOn":"45,8dBA",
+        "diurnoSimuladoOn":"45,4 dBA",
+        "nocturnoOn":"59,6 dBA",
+        "nocturnoOff":"47,4 dBA",
+        "nocturnoProcesadoOn":"47,5 dBA",
+        "nocturnoSimuladoOn":"45,4 dBA",
+        "coordinates": [9.6218, -75.428756],
+        "codmed": "RE4_DF_ON"
+      }
+    }
+  },
+  "Palomino": {
+    "coordinates": [11.249294, -73.552575],
+    "points": {
+      "RE1": {
+        "diurnoOn":"51,8 dBA",
+        "diurnoOff":"51,9 dBA",
+        "diurnoProcesadoOn":"51,2 dBA",
+        "diurnoSimuladoOn":"47,5 dBA",
+        "nocturnoOn":"52,9 dBA",
+        "nocturnoOff":"56,3 dBA",
+        "nocturnoProcesadoOn":"52,1 dBA",
+        "nocturnoSimuladoOn":"47,5 dBA",
+        "coordinates": [11.249294, -73.552575],
+        "codmed": "PALOMINO_RE1_DF_ON"
+      },
+      "RE2": {
+        "diurnoOn":"59,9 dBA",
+        "diurnoOff":"55,8 dBA",
+        "diurnoProcesadoOn":"53,6 dBA",
+        "diurnoSimuladoOn":"51,3 dBA",
+        "nocturnoOn":"65,4 dBA",
+        "nocturnoOff":"56,7 dBA",
+        "nocturnoProcesadoOn":"53,8 dBA",
+        "nocturnoSimuladoOn":"51,3 dBA",
+        "coordinates": [11.249325, -73.552114],
+        "codmed": "PALOMINO_RE2_DF_ON"
+      },
+      "RE3": {
+        "diurnoOn":"61,8 dBA",
+        "diurnoOff":"58,4 dBA",
+        "diurnoProcesadoOn":"54,7 dBA",
+        "diurnoSimuladoOn":"55,6 dBA",
+        "nocturnoOn":"61,8 dBA",
+        "nocturnoOff":"55,5 dBA",
+        "nocturnoProcesadoOn":"54,5 dBA",
+        "nocturnoSimuladoOn":"55,6 dBA",
+        "coordinates": [11.249669, -73.552164],
+        "codmed": "PALOMINO_RE3_NF_ON"
+      },
+      "RE4": {
+        "diurnoOn":"52,1 dBA",
+        "diurnoOff":"55,6 dBA",
+        "diurnoProcesadoOn":"49,6 dBA",
+        "diurnoSimuladoOn":"49,7 dBA",
+        "nocturnoOn":"53,1 dBA",
+        "nocturnoOff":"50,0 dBA",
+        "nocturnoProcesadoOn":"48,7 dBA",
+        "nocturnoSimuladoOn":"49,7 dBA",
+        "coordinates": [11.250306, -73.552564],
+        "codmed": "PALOMINO_RE4_DF_ON"
+      }
+    }
+  },
+  "Paiva": {
+    "coordinates": [
+      10.481854,
+      -75.376578
+    ],
+    "points": {
+      "RE1": {
+        "diurnoOn":"44,8 dBA",
+        "diurnoOff":"45,5 dBA",
+        "diurnoProcesadoOn":"44,6 dBA",
+        "diurnoSimuladoOn":"43,7 dBA",
+        "nocturnoOn":"47,9 dBA",
+        "nocturnoOff":"50,2 dBA",
+        "nocturnoProcesadoOn":"45,5 dBA",
+        "nocturnoSimuladoOn":"43,7 dBA",
+        "coordinates": [
+          10.484707,
+          -75.375389
+          
+        ],
+        "codmed": "RE1_DF_ON"
+      },
+      "RE2": {
+        "diurnoOn":"47,1 dBA",
+        "diurnoOff":"44,4 dBA",
+        "diurnoProcesadoOn":"46,7 dBA",
+        "diurnoSimuladoOn":"46,9 dBA",
+        "nocturnoOn":"50,0 dBA",
+        "nocturnoOff":"47,9 dBA",
+        "nocturnoProcesadoOn":"49,7 dBA",
+        "nocturnoSimuladoOn":"46,9 dBA",
+        "coordinates": [
+          10.481897,
+          -75.376947
+          
+        ],
+        "codmed": "RE2_DF_ON"
+      },
+      "RE3": {
+        "diurnoOn":"48,7 dBA",
+        "diurnoOff":"45,2 dBA",
+        "diurnoProcesadoOn":"44,5 dBA",
+        "diurnoSimuladoOn":"44,8 dBA",
+        "nocturnoOn":"50,4 dBA",
+        "nocturnoOff":"48,7 dBA",
+        "nocturnoProcesadoOn":"46,7 dBA",
+        "nocturnoSimuladoOn":"44,8 dBA",
+        "coordinates": [
+          10.480694,
+          -75.376397
+          
+        ],
+        "codmed": "RE3_NF_ON"
+      },
+      "RE4": {
+        "diurnoOn":"49,3 dBA",
+        "diurnoOff":"47,7 dBA",
+        "diurnoProcesadoOn":"46,4 dBA",
+        "diurnoSimuladoOn":"44,0 dBA",
+        "nocturnoOn":"51,4 dBA",
+        "nocturnoOff":"52,8 dBA",
+        "nocturnoProcesadoOn":"50,7 dBA",
+        "nocturnoSimuladoOn":"44,0 dBA",
+
+
+        "coordinates": [
+          10.4815804,
+          -75.3749313
+          
+        ],
+        "codmed": "RE4_DF_ON"
+      }
+    }
+  }
+}
