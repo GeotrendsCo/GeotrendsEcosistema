@@ -89,7 +89,7 @@ setColorBar("colorBar");
 document.addEventListener('DOMContentLoaded', () => {
     loadLayersConfig().then(() => {
         //initializeOrtofotoLayer();
-        fetch('http://localhost:3000/layers')
+        fetch('http://44.213.153.17:3000/layers')
             .then(response => response.json())
             .then(layers => {
                 const layersContainer = document.getElementById('layers-container');
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching layers:', error);
             });
 
-        fetch('http://localhost:3000/layersM')
+        fetch('http://44.213.153.17:3000/layersM')
             .then(response => response.json())
             .then(layers => {
                 const layersContainer = document.getElementById('layers-container2');
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching layers:', error);
             });
 
-        fetch('http://localhost:3000/layersF')
+        fetch('http://44.213.153.17:3000/layersF')
             .then(response => response.json())
             .then(layers => {
                 const layersContainer = document.getElementById('layers-container3');
@@ -173,7 +173,7 @@ function selectLayer(layer) {
     disableAllOverlays();
 
     // Obtener y desplegar los polígonos en el mapa
-    fetch(`http://localhost:3000/polygons/${layer}`)
+    fetch(`http://44.213.153.17:3000/polygons/${layer}`)
         .then(response => response.json())
         .then(geojson => {
             displayPolygons(geojson, 'ruido', layer);
@@ -192,7 +192,7 @@ function toggleLayer2(layer, layerItem) {
     } else {
         // Activar la capa
         layerItem.classList.add('active-layer');
-        fetch(`http://localhost:3000/polygonsM/${layer}`)
+        fetch(`http://44.213.153.17:3000/polygonsM/${layer}`)
             .then(response => response.json())
             .then(geojson => {
                 displayPolygons2(geojson, 'mediciones', layer);
@@ -212,7 +212,7 @@ function toggleLayer3(layer, layerItem) {
     } else {
         // Activar la capa
         layerItem.classList.add('active-layer');
-        fetch(`http://localhost:3000/polygonsF/${layer}`)
+        fetch(`http://44.213.153.17:3000/polygonsF/${layer}`)
             .then(response => response.json())
             .then(geojson => {
                 displayPolygons3(geojson, 'controles', layer);

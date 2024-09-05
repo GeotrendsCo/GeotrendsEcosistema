@@ -27,7 +27,7 @@ let autorotate;
 let isInit = true;
 
 async function fetchData(deploymentId) {
-    const response = await fetch(`http://localhost:3000/deployments/${deploymentId}/nodes`);
+    const response = await fetch(`http://44.213.153.17:3000/deployments/${deploymentId}/nodes`);
     const data = await response.json();
     return data;
 }
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const deploymentSelect = document.getElementById('deployment-select');
     const submitButton = document.querySelector('form button');
     
-    const companies = await fetch('http://localhost:3000/companies').then(res => res.json());
+    const companies = await fetch('http://44.213.153.17:3000/companies').then(res => res.json());
     companies.forEach(company => {
         const option = document.createElement('option');
         option.value = company.id;
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const companyId = companySelect.value;
         if (!companyId) return;
 
-        const projects = await fetch(`http://localhost:3000/companies/${companyId}/projects`).then(res => res.json());
+        const projects = await fetch(`http://44.213.153.17:3000/companies/${companyId}/projects`).then(res => res.json());
         projects.forEach(project => {
             const option = document.createElement('option');
             option.value = project.id;
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const projectId = projectSelect.value;
         if (!projectId) return;
 
-        const deployments = await fetch(`http://localhost:3000/projects/${projectId}/deployments`).then(res => res.json());
+        const deployments = await fetch(`http://44.213.153.17:3000/projects/${projectId}/deployments`).then(res => res.json());
         deployments.forEach(deployment => {
             const option = document.createElement('option');
             option.value = deployment.id;

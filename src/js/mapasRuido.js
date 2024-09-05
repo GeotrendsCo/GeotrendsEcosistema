@@ -41,7 +41,7 @@ function initializeMap() {
         .then(response => response.json())
         .then(layerConfig => {
             // Load layer names from the backend
-            fetch('http://localhost:3000/layersShpBase')
+            fetch('http://44.213.153.17:3000/layersShpBase')
                 .then(response => response.json())
                 .then(layerNames => {
                     layerNames.forEach(layerName => {
@@ -55,7 +55,7 @@ function initializeMap() {
                             map.on('overlayadd', function(event) {
                                 if (event.name === layerInfo.name) {
                                     activeLayers.add(layerInfo.name);
-                                    fetch(`http://localhost:3000/polygonsShpBase/${layerName}`)
+                                    fetch(`http://44.213.153.17:3000/polygonsShpBase/${layerName}`)
                                         .then(response => response.json())
                                         .then(data => {
                                             const geoJsonLayer = L.geoJSON(data, {

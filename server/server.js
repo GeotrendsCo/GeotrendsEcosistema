@@ -86,7 +86,7 @@ app.use(express.json());
 
 // Middleware para permitir CORS
 app.use(cors({
-    origin: 'http://localhost:5173'  // Ajusta esto según sea necesario
+    origin: 'http://44.213.153.17:5173'  // Ajusta esto según sea necesario
 }));
 
 
