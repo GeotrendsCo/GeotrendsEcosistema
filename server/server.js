@@ -13,7 +13,7 @@ const pool = new Pool({
     user: 'dbmasteruser',
     host: 'ls-801a010ba211ba2e70a772ea9be742cc63bc77c8.c3igyeqqodiz.us-east-1.rds.amazonaws.com',
     database: 'EcoGeotrends',
-    password: '3wW0n]om^<jY{A9[e7M^MLL_U_G&Kp8G',
+    password: 'S,m{KxVlY-vVRGYJM7B~)`f[t[_!YZ2J',
     port: 5432,
     ssl: {
       rejectUnauthorized: false // Cambiar a `true` para producción asegura que se verificarán los certificados.
